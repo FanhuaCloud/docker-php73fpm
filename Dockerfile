@@ -2,6 +2,7 @@ FROM php:7.3-fpm
 
 RUN apt-get update && apt-get install -y \
         libz-dev \
+        libzip-dev \
         libwebp-dev \
         libjpeg-dev \
         libpng-dev \
