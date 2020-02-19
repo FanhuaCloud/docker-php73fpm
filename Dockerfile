@@ -1,13 +1,14 @@
 FROM php:7.3-fpm
 
 RUN apt-get update && apt-get install -y \
-        libfreetype6-dev \
-        libjpeg62-turbo-dev \
-        libpng-dev \
         libz-dev \
-    && docker-php-ext-configure gd --with-freetype --with-jpeg \
+        libwebp-dev \
+        libjpeg-dev \
+        libpng-dev \
+        libfreetype6-dev \
+    && docker-php-ext-configure gd --with-webp-dir=/usr/include/webp --with-jpeg-dir=/usr/include --with-png-dir=/usr/include --with-freetype-dir=/usr/include/freetype2 \
     && docker-php-ext-configure bcmath --enable-bcmath \
-    && docker-php-ext-configure exif --enable-exif\
+    && docker-php-ext-configure exif --enable-exif \
     && docker-php-ext-configure mysqli \
     && docker-php-ext-configure pdo_mysql \
     && docker-php-ext-configure zip \
